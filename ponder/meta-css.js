@@ -46,7 +46,7 @@ const topics = document.querySelector('#topics');
 
 topics.appendChild(newPara)
 
-const image = document.querySelector('img');
+const image = document.querySelector('lo');
 image.setAttribute('src', 'images/logos.jpg');
 image.setAttribute('alt', 'new logo with black background');
 
