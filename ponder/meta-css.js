@@ -38,5 +38,18 @@ selectElem.addEventListener('change', function(){
     console.log(codeValue);
     document.getElementById(codeValue).style.color = 'red';
 })
+
+const newPara = document.createElement('p');
+newPara.innerText = "added text here";
+
+const topics = document.querySelector('#topics');
+
+topics.appendChild(newPara)
+
+const image = document.querySelector('img');
+image.setAttribute('src', 'images/logos.jpg');
+image.setAttribute('alt', 'new logo with black background');
+
+document.body.style.backgroundColor = 'blue';
                 
                     
