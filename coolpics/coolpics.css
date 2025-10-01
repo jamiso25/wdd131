@@ -18,6 +18,7 @@ footer {
 }
 main {
     display: grid;
+    background-color: gray;
 }
 h1 {
     text-align: center;
@@ -51,6 +52,7 @@ nav a:hover {
 }
 footer {
     text-align: center;
+    background-color: lightblue;
 }
 
 
