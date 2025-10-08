@@ -89,7 +89,7 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
     .hide{
-    display: block;
+    display: none;
 
 }
     
@@ -97,4 +97,5 @@ footer {
     main{
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
 }
