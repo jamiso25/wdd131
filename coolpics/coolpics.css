@@ -16,6 +16,9 @@ footer {
     cursor: pointer;
     border: none;
     background-color: transparent;
+    text-align: center;
+    display: block;
+    margin: 0% auto;
 }
 main {
     display: grid;
@@ -23,8 +26,21 @@ main {
 }
 h1 {
     text-align: center;
+    
 }
 image 
+
+figure img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 5px 5px 15px black;
+    display: block;
+    margin: 0 auto;
+}
+
 section {
   padding: 20px;
   background-color: white;
@@ -55,23 +71,27 @@ nav a:hover {
     border: none;
     background-color: transparent;
 }
-.bar1, .bar2, .bar3 {
-    width: 30px;
-    height: 4px;
-    background-color: black;
-    margin: 5px 0;
-    transition: .4s;
-}
 
 
-.change .bar1 {
-  transform: translate(0, 7.5px) rotate(-45deg);
+dialog img {
+    width: 90%;
+    display: block;
+    margin: 20vh auto;
 }
-.change .bar2 {opacity: 0;}
+dialog {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.75);
+}
 
-.change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+.close-viewer {
+    position: absolute;
+    top: 10vh;
+    right: 2vh;
+    padding: 3px 6px;
+    font-size: 1.5em;
 }
+
 
 footer {
     text-align: center;
@@ -80,6 +100,18 @@ footer {
 
 
 @media screen and (min-width: 700px) {
+
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    
+
+}
+    
+@media screen and (min-width: 1000px) {
     nav {
         text-align: center;
         display: block;
@@ -89,25 +121,16 @@ footer {
         display: inline;
         border: none;
     }
-
-    .menu-btn {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hide{
-    display: block;
-    }
-
-}
     
-@media screen and (min-width: 1000px) {
-    main{
+    .gallery{
         grid-template-columns: 1fr 1fr 1fr;
     }
+    .menu-btn {
+        display: none;
+
+    }
+    .hide {
+        display: block;
+    }
+    
 }
