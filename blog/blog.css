@@ -31,7 +31,7 @@ footer {
     text-align: left;
     color: red;
 }
-#book-list {
+.book {
     display: grid;
     grid-template-columns: 1fr;
 }
