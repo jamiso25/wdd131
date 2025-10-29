@@ -5,6 +5,8 @@ body {
 form {
   width: 50%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 100px 250px 100px;
 }
 h1, h2 {
   text-align: center;
@@ -31,6 +33,8 @@ label {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    grid-column: 3/4;
+    grid-row: 4/5;
   }
   .errors {
     white-space: pre-line; 
@@ -38,4 +42,29 @@ label {
   }
   .hide {
     display: none;
+  }
+  #front-card {
+    display: grid;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 4px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 3fr;
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
+  #back-card {
+    display: grid;
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    grid-column: 2/4;
+    grid-row: 2/4;
+    z-index: -1;
+    text-align: right;
+  }
+  #cvc-cvv {
+    width: 30%;
+    height: 50%;
+    justify-self: right;
   }

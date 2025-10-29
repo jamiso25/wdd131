@@ -10,25 +10,24 @@
     <script src="creditcard.js" defer></script>
   </head>
   <body>
-    <header><h1>Checkout</h1></header>
+    <form>
+    <div id = 'front-card'>
     <main>
       <section class="errors"></section>
-      <form id="💳" action="#" method="get">
         <label for="Card Number">Card Number</label>
         <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9101 1020" required>
         <label for="Card Holder">Card Holder</label>
         <input type="text" id="cardHolder" name="cardHolder" placeholder="Jane Doe" required>
-        <div id="cardExpiration">
     <label for="expirationDate">EXPIRATION</label>
     <input type='text' id='month' name="expMonth" placeholder="MM" required aria-labelledby="expirationDate">
     <input type='text' id='year' name="expYear" placeholder="YY" required aria-labelledby="expirationDate">
-</div>
+      </div>
+        <div id = 'back-card'>
         <label for="CVC/CVV">CVC/CVV</label>
-        <input type="text" id="CVC/CVV" name="CVC/CVV" placeholder="xxx" required>
+        <input type="text" id="cvc-cvv" name="cvc-cvv" placeholder="xxx" required>
+        </div>
 
         <button type="submit">Submit</button>
-
-        </select>
       </form>
     </main>
   </body>
