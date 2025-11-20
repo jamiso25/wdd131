@@ -283,12 +283,85 @@ const recipes = [
 
 const simpleList = ["Waffles", "Sweet Potato", "Side", "Chicken", "Entree", "Potatoes", "Southwest", "Indian","dessert","German"];
 
-console.log(simpleList.sort());
+let randomRecipe = Math.floor(Math.random() * recipes.length);
+console.log(randomRecipe);
 
-let lowerList = simpleList.map(function(tags){
-    return tags.toLowerCase();
-})
+function ratingTemplate(rating){
+	let html = '';
+	for (let i = 1; i <= 5; i++){
+		if (i <= rating){
+			html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+		} else (
+			html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`
+		)
+	}
+	return html;
+};
 
+function tagTemplate(tags) {
+	return tags.map((tag) => `<button>${tag}</button>`).join(' ');
+}
+
+function recipeTemplate(recipe) {
+	return `
+	<section class='recipe-card'>
+		<div class="recipe-card-image">
+			<img src="${recipe.image}" alt='#'>
+		</div>
+		<div class="recipe-card-content">
+			${tagTemplate(recipe.tags)}
+			<h2>${recipe.name}</h2>
+			<span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">${ratingTemplate(recipe.rating)}</span>
+			<p class="description">${recipe.description}</p>
+		</div>
+	</section>`
+}
+
+function renderRecipe(recipe){
+	let recipeContainer = document.querySelector('.Recipe');
+	let html = recipeTemplate(recipe);
+	recipeContainer.innerHTML += html;
+}
+
+renderRecipe(recipes[randomRecipe]);
+
+function renderRecipes(list) {
+	let recipeContainer = document.querySelector('.Recipe');
+	recipeContainer.innerHTML = "";
+	list.forEach(recipe => renderRecipe(recipe));
+}
+
+const searchInput = document.querySelector('.Search-bar');
+
+searchInput.addEventListener('input', function(event) {
+  const searchTerm = event.target.value;
+  console.log(`Searching for: ${searchTerm}`);
+});
+
+  searchInput.addEventListener('search', async (event) => { 
+      const searchTerm = event.target.value;
+      try {
+        const response = await fetch(`/api/search?query=${searchTerm}`);
+        const data = await response.json();
+
+        console.log('Search results:', data);
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
+    });
+
+   const resultDisplay = document.querySelector('#search-result-display');
+
+    searchInput.addEventListener('input', (event) => {
+      const searchTerm = event.target.value;
+      if (searchTerm.length > 0) {
+        resultDisplay.textContent = `Searching for: "${searchTerm}"`;
+      } else {
+        resultDisplay.textContent = 'Enter a search term.';
+      }
+    });
+
+let lowerList = simpleList.map(tag => tag.toLowerCase());
 console.log(lowerList.sort());
 
 let searchTerm = 'Waffles';
@@ -299,24 +372,26 @@ function searchTags(tags){
     return tags.includes(searchTerm);
 }
 
-console.log(filterTags);
 
 let query = 'Sweet Potato Waffles';
 
 let filterList = recipes.filter(searchList);
 
 function searchList(item){
-    return item.name.toLowerCase().includes(query.tpLowerCase());
+    return item.name.toLowerCase().includes(query.toLowerCase());
 }
-console.log(filteredList);
+console.log(filterList);
 
 let queryTrait = 'Waffles';
 
 let filterTraits = recipes.filter(searchTraits);
 
+console.log(filterTraits);
+
 function searchTraits(item){
-    return item.traits.find((trait)=>
-    trait.toLowerCase().includes(queryTrait.toLowerCase()));   
+    return item.tags.some(tag =>
+        tag.toLowerCase().includes(queryTrait.toLowerCase())
+    );   
 }
 
-console.log(filteredTraits);
+// console.log(filteredTraits);
