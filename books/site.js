@@ -22,7 +22,7 @@ const books = [
     {
         title: "The Hunger Games",
         date: "September 14, 2008",
-        description: "Katniss Everdeen finds herself participating in a televised fight to the death in order to save her sister.",
+        description: "Katniss Everdeen finds herself participating in a televised fight to the death in order to protect her sister.",
         imgSrc: "The-Hunger-Games.jpg",
         imgAlt: "The Mockingjay pin",
         ages: "10+",
@@ -42,6 +42,7 @@ const books = [
 ];
 
 let bookList = document.querySelector('#book-list');
+console.log(bookList)
 
 books.forEach(book => {
 
@@ -51,7 +52,7 @@ books.forEach(book => {
       <p><strong>Release Date:</strong> ${book.date}</p>
       <p><strong>Recommended Age:</strong> ${book.ages}</p>
       <p><strong>Genre:</strong> ${book.genre}</p>
-      <p><strong>Rating:</strong> <span aria-label="${book.stars.length} out of 5 stars" role="img">${movie.stars}</span></p>
+      <p><strong>Rating:</strong> <span aria-label="${book.stars.length} out of 5 stars" role="img">${book.stars}</span></p>
       <p id='desc'>${book.description}</p>
     </article>`
 
